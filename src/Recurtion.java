@@ -1,4 +1,4 @@
-public class Recursion {
+public class Recurtion {
     public static void main(String[] args) {
         System.out.println(fact(0));
     }
