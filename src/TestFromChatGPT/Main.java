@@ -1,6 +1,8 @@
 package TestFromChatGPT;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /*
 1. Create a program which prints the sum of two numbers.
@@ -16,9 +18,9 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-//        System.out.println(sum(1,2));
-//        System.out.println(largest(10,1,11));
-        System.out.println(index(2,5));
+        System.out.println(sum(1,2));
+        System.out.println(largest(10,1,11));
+        printFibonacci(10);
 
     }
     //1. Create a program which prints the sum of two numbers.
@@ -30,8 +32,23 @@ public class Main {
         int [] values = {a,b,c};
         return Arrays.stream(values).max().getAsInt();
     }
-
-    static int index(int a, int b){
-        return a&b;
+// 3. Create a program which prints the first 10 Fibonacci numbers.
+    static void printFibonacci(int n) {
+        List<Long> list = new ArrayList<>();
+        if (n == 0) {
+            System.out.println("Нет такого элемента");
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            switch (i) {
+                case 1 -> list.add(0L);
+                case 2, 3 -> list.add(1L);
+                default -> list.add(list.get(i - 3) + list.get(i - 2));
+            }
+        }
+        System.out.println(Arrays.toString(list.toArray()));
     }
+
+  //  4. Write a program which prints all the prime numbers between 1 and 100.
+
 }

@@ -6,18 +6,20 @@ import java.util.List;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        print(50);
+        printFibonacci(10);
     }
 
-    static void print(int n) {
+    static void printFibonacci(int n) {
         List<Long> list = new ArrayList<>();
-        if (n == 0 || n == 1) {
-            System.out.println(0);
-        } else {
-            list.add(0L);
-            list.add(1L);
-            while (list.size() < n) {
-                list.add(list.get(list.size() - 2) + list.get(list.size() - 1));
+        if (n == 0) {
+            System.out.println("Нет такого элемента");
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            switch (i) {
+                case 1 -> list.add(0L);
+                case 2, 3 -> list.add(1L);
+                default -> list.add(list.get(i - 3) + list.get(i - 2));
             }
         }
         System.out.println(Arrays.toString(list.toArray()));

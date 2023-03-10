@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class TestMap {
     public static void main(String[] args) {
@@ -12,24 +9,27 @@ public class TestMap {
         map.put("four","four4");
         map.put("five","five5");
 
-        Set<Map.Entry<String, String>> set = map.entrySet();
 
-        for (Map.Entry<String,String> entry: set ) {
-            System.out.println(entry.getKey() + ">>>" + entry.getValue());
-        }
-        System.out.println();
+//        Set<Map.Entry<String, String>> set = map.entrySet();
+//
+//        for (Map.Entry<String,String> entry: set ) {
+//            System.out.println(entry.getKey() + ">>>" + entry.getValue());
+//        }
+//        System.out.println();
+//
+//        for (String s :map.keySet()){
+//            System.out.println(s + ">>>" + map.get(s));
+//        }
+//
+//        System.out.println();
+//
+//        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+//
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
 
-        for (String s :map.keySet()){
-            System.out.println(s + ">>>" + map.get(s));
-        }
-
-        System.out.println();
-
-        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
-
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+        System.out.println(Arrays.toString(map.entrySet().toArray()));
 
     }
 }
