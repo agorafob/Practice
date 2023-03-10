@@ -25,7 +25,4 @@ public class LuckyTicket {
 //        System.out.println(right==left?"equal":"not equal");
     }
 
-    public static String s(){
-        return "f";
-    }
 }

@@ -1,13 +1,19 @@
 package Solutions;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.security.SecureRandom;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class CountCharacters {
     public static final String TEXT = "Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.";
 
     public static void main(String[] args) {
       run(TEXT);
+        String[] arr = TEXT.toLowerCase().split("");
+        Map<String, Long> map = Arrays.stream(arr).collect(Collectors.groupingBy(i->i,Collectors.counting()));
+        System.out.println(Arrays.toString(map.entrySet().toArray()));
+
     }
 
     static String normalize(String str){

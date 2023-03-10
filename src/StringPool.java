@@ -1,5 +1,3 @@
-package Solutions;
-
 public class StringPool {
     public static void main(String[] args) {
         String s1 = "Hi";
