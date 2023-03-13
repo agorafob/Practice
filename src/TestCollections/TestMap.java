@@ -1,3 +1,5 @@
+package TestCollections;
+
 import java.util.*;
 
 public class TestMap {

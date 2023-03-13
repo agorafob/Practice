@@ -11,7 +11,8 @@ public class CountCharacters {
     public static void main(String[] args) {
       run(TEXT);
         String[] arr = TEXT.toLowerCase().split("");
-        Map<String, Long> map = Arrays.stream(arr).collect(Collectors.groupingBy(i->i,Collectors.counting()));
+        Map<String, Long> map = Arrays.stream(arr).collect
+                (Collectors.groupingBy(i->i,Collectors.counting()));
         System.out.println(Arrays.toString(map.entrySet().toArray()));
 
     }

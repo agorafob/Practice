@@ -8,7 +8,7 @@ public class UserValidator {
         }
 
         if ((user.getAge()<18)){
-            throw new TestException2("Test message2");
+            throw new TestException2("TestText.Test message2");
         }
     }
 }
