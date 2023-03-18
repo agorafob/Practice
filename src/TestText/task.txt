@@ -1,0 +1,9 @@
+Design and implement simple Java program to find specific strings in a large text.
+The program should be composed of following modules:
+
+  1)The Main module - reads a large text file in parts (e.g. lines in each part) and sends each part(as string)
+  to a Matcher. After all matchers completed, it calls the Aggregator to combine and print the results
+  2)The Matcher - gets a text as input and searches for matches of a given set of strings.
+  The result is a map from a word to its location(s) in a text
+  3)The Aggregator - aggregates the results from all the matchers and prints the results.
+

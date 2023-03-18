@@ -11,7 +11,6 @@ public class TestMap {
         map.put("four","four4");
         map.put("five","five5");
 
-
 //        Set<Map.Entry<String, String>> set = map.entrySet();
 //
 //        for (Map.Entry<String,String> entry: set ) {
@@ -32,6 +31,14 @@ public class TestMap {
 //        }
 
         System.out.println(Arrays.toString(map.entrySet().toArray()));
+        map=new TreeMap<>();
+        map.put("one","one1");
+        map.put("two","two2");
+        map.put("three","three3");
+        map.put("four","four4");
+        map.put("five","five5");
+        System.out.println(Arrays.toString(map.entrySet().toArray()));
+
 
     }
 }
