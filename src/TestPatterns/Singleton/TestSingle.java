@@ -1,4 +1,4 @@
-package TestPatterns;
+package TestPatterns.Singleton;
 
 public class TestSingle {
     public static void main(String[] args) {

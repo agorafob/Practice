@@ -1,4 +1,4 @@
-package TestPatterns;
+package TestPatterns.Singleton;
 
 public class Singleton {
     private static volatile Singleton instance;
