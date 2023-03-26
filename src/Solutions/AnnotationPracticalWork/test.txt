@@ -1,0 +1,20 @@
+Практическая работа
+Создать программу, которая создает в определенном пакете экземпляры только тех классов,
+которые помечены аннотацией @Start и вызывает метод run (или другой метод, указанный в
+аннотации, например method = "initialize"), используя механизм рефлексии.
+package ua.ithillel;
+@Start(priority = 10)
+public class Foo1 {
+public void run() {
+System.out.println("Class Foo1 initialized!");
+}
+}
+@Start(priority = 100, method = "initialize")
+public class Foo2 {
+public void run() {
+throw new IllegalStateException("This method should not be called");
+}
+public void initialize() {
+System.out.println("Class Foo2 initialized!");
+}
+}

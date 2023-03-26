@@ -1,4 +1,4 @@
-package Solutions;
+package Solutions.OneClassSolutions;
 
 public class GetLastWordLength {
     public static void main(String[] args) {

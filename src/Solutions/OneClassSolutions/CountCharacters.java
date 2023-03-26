@@ -1,4 +1,4 @@
-package Solutions;
+package Solutions.OneClassSolutions;
 
 import java.security.SecureRandom;
 import java.util.*;

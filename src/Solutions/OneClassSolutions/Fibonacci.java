@@ -1,4 +1,4 @@
-package Solutions;
+package Solutions.OneClassSolutions;
 
 import java.util.ArrayList;
 import java.util.Arrays;

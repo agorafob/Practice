@@ -1,4 +1,4 @@
-package Solutions;
+package Solutions.OneClassSolutions;
 
 // 371  = 3*3*3 + 7*7*7 + 1*1*1 = 21 + 343 + 1 = 371
 public class Armstrong {
