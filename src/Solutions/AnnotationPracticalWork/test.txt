@@ -2,13 +2,17 @@
 Создать программу, которая создает в определенном пакете экземпляры только тех классов,
 которые помечены аннотацией @Start и вызывает метод run (или другой метод, указанный в
 аннотации, например method = "initialize"), используя механизм рефлексии.
-package ua.ithillel;
+
+
+
 @Start(priority = 10)
 public class Foo1 {
 public void run() {
 System.out.println("Class Foo1 initialized!");
 }
 }
+
+
 @Start(priority = 100, method = "initialize")
 public class Foo2 {
 public void run() {
@@ -18,3 +22,27 @@ public void initialize() {
 System.out.println("Class Foo2 initialized!");
 }
 }
+
+
+
+Method[] methods = c.getMethods();
+                Method initialize;
+                Method run;
+                boolean contains = false;
+                int index = 0;
+                for (int i = 0; i < methods.length; i++) {
+                    if (methods[i].getName().contains("initialize")) {
+                        contains = true;
+                        index = i;
+                    }
+                    if (methods[i].getName().contains("run")) {
+                        index = i;
+                    }
+                }
+                if (contains) {
+                    initialize = methods[index];
+                    initialize.invoke(o);
+                } else {
+                    run = methods[index];
+                    run.invoke(o);
+                }

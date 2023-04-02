@@ -1,4 +1,4 @@
-package TestReflection.fieldsAndMethods;
+package TestReflection.constructorsAndNewInstances;
 
 import java.lang.reflect.Method;
 import java.util.Objects;

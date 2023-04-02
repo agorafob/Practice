@@ -248,4 +248,3 @@ byte, short, int, long
 @Options @OnlyOne @Key=2
 Нет
 Да
-
