@@ -13,40 +13,36 @@ public class Util {
 
 
     public static Map<Integer, Map<Object, Method>> getMap(Set<Class<?>> allClasses, String annotationName) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Map<Integer,Map<Object,Method>> print = new HashMap<>();
+        Map<Integer, Map<Object, Method>> mapOfClasses = new HashMap<>();
         for (Class<?> c : allClasses) {
             if (Arrays.toString(c.getAnnotations()).contains(annotationName)) {
                 Object o = c.getDeclaredConstructor().newInstance();
                 Annotation[] annotations = c.getAnnotations();
-                List<String> parameters = new ArrayList<>();
-                for (Annotation a:annotations) {
-                    if(a.toString().contains(annotationName)){
-                        parameters= Arrays.asList(a.toString().substring(a.toString().lastIndexOf('(') + 1, a.toString().length() - 1).
-                                replaceAll("[=\",]",":").replaceAll("::",":").split(":"));
+                List<String> parametersInAnnotation = new ArrayList<>();
+                for (Annotation a : annotations) {
+                    if (a.toString().contains(annotationName)) {
+                        String annotation = a.toString();
+                        parametersInAnnotation = Arrays.asList(annotation.substring(annotation.
+                                                                                            lastIndexOf('(') + 1, annotation.length() - 1).
+                                replaceAll("[=\",]", ":").replaceAll("::", ":").
+                                split(":"));
                     }
                 }
-                Method method ;
-                if(parameters.get(1).equals("")){
-                    method=c.getMethod("run");
-                }else {
-                    method=c.getMethod(parameters.get(1));
-                }
-                Map<Object,Method> temp = new HashMap<>();
-                temp.put(o,method);
-                print.put(Integer.parseInt(parameters.get(3)),temp);
+                Method method = c.getMethod(parametersInAnnotation.get(1));
+                Map<Object, Method> temp = new HashMap<>();
+                temp.put(o, method);
+                mapOfClasses.put(Integer.parseInt(parametersInAnnotation.get(3)), temp);
             }
         }
-        return print;
+        return mapOfClasses;
     }
 
-    public static void printMap(Map<Integer,Map<Object,Method>> print) throws InvocationTargetException, IllegalAccessException {
-        List<Integer> list = new ArrayList<>(print.keySet().stream().toList());
-        list.sort(Comparator.comparing(Integer::intValue).reversed());
-        for (Integer i:list) {
-            Map<Object,Method> map = print.get(i);
-            System.out.println("priority :" + i);
-            Set<Map.Entry<Object, Method>> entries = map.entrySet();
-            for (Map.Entry<Object,Method> m:entries) {
+    public static void printMap(Map<Integer, Map<Object, Method>> mapOfClasses) throws InvocationTargetException, IllegalAccessException {
+        List<Integer> priorities = new ArrayList<>(mapOfClasses.keySet().stream().toList());
+        priorities.sort(Comparator.comparing(Integer::intValue).reversed());
+        for (Integer i : priorities) {
+            Set<Map.Entry<Object, Method>> entries = mapOfClasses.get(i).entrySet();
+            for (Map.Entry<Object, Method> m : entries) {
                 m.getValue().invoke(m.getKey());
             }
         }

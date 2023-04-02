@@ -10,5 +10,6 @@ import java.lang.annotation.Target;
 public @interface Start {
 
     int priority();
-    String method() default "";
+
+    String method() default "run";
 }
