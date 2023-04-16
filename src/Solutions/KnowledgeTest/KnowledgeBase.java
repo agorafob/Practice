@@ -64,13 +64,13 @@ public class KnowledgeBase {
             }
             System.out.println();
             System.out.println(START_MESSAGE);
-            String answer = sc.nextLine();
-            while (!controller(answer)){
+            String userAnswer = sc.nextLine();
+            while (!controller(userAnswer)){
                 System.out.println(ERROR);
                 System.out.println(START_MESSAGE);
-                answer = sc.nextLine();
+                userAnswer = sc.nextLine();
             }
-            validator(correctAnswer,Integer.parseInt(answer));
+            validator(correctAnswer,Integer.parseInt(userAnswer));
         }
     }
 

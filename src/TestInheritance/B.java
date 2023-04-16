@@ -10,6 +10,8 @@ public class B extends A {
 //        System.out.println(++counterB + " " + staticStringB);
 //    }
 
+
+
     public B() {
 //        super();
         nonStaticStringB = "nonStaticStringB";

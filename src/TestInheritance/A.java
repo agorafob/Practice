@@ -11,6 +11,8 @@ public class A {
 //        System.out.println(++counterA + " " + staticStringA);
 //    }
 
+
+
     public A() {
         nonStaticStringA = "nonStaticStringA";
         System.out.println(++counterA + " " + nonStaticStringA);
