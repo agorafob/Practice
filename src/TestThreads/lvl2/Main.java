@@ -5,10 +5,10 @@ public class Main {
         for (int i = 0; i <1000 ; i++) {
             DemoClass demoClass = new DemoClass();
             demoClass.start();
-            demoClass.join();
+//            demoClass.join();
         }
 
-        System.out.println(DemoClass.getCounter());
+//        System.out.println(DemoClass.getCounter());
     }
 }
 

@@ -8,15 +8,15 @@ public class Account {
     }
 
 
-//    public void withdraw(int amount) {
-//        checkAmount(amount);
-//        synchronized (this){
-//            if(amount>balance){
-//                throw new IllegalArgumentException("not enough balance");
-//            }
-//            balance -= amount;
-//        }
-//    }
+    public void withdraw(int amount) {
+        checkAmount(amount);
+        synchronized (this){
+            if(amount>balance){
+                throw new IllegalArgumentException("not enough balance");
+            }
+            balance -= amount;
+        }
+    }
 
     public void waitAndWithdraw(int amount) throws InterruptedException {
         checkAmount(amount);

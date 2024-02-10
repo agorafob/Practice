@@ -19,4 +19,7 @@ public class A {
         staticStringA = "staticStringA";
         System.out.println(++counterA + " " + staticStringA);
     }
+
+
+
 }
