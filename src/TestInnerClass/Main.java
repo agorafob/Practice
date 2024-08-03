@@ -8,6 +8,11 @@ public class Main {
         interfaceForLocal.methodFromInterfaceForLocal();
         outer.methodWithAbstractClass();
 
+        outer.t.test1();
+
+        Outer.Inner inner = new Outer().new Inner();
+
+
         Outer.Inner outInn = outer.new Inner();
         outInn.test();
         outInn.innerInt=100;

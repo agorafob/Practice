@@ -3,6 +3,19 @@ package TestInnerClass;
 public class Outer {
     private int a = 10;
     private static int b = 20;
+    int[] test = new int[2];
+    int aa = test.length;
+    public TestClass t = new TestClass(){
+
+        public void test2(){
+            System.out.println("test2");
+        }
+
+        public void test1() {
+            System.out.println("silent t1");
+        }
+    };
+
 
     void test() {
         System.out.println("private a from outer " + a);
@@ -10,7 +23,6 @@ public class Outer {
         Inner innerInOuter = new Inner();
         Nested nestedInOuter = new Nested();
         System.out.println("test from innerInOuter:");
-        innerInOuter.test();
         System.out.println("test from nestedInOuter:");
         nestedInOuter.test();
         System.out.println("---------");
@@ -29,7 +41,8 @@ public class Outer {
     }
 
     public void methodWithAbstractClass(){
-        AbstractInterface x = ()-> System.out.println("This is methodFromAbstractInterface with lambda");
+        AbstractInterface x = ()-> System.out.println("This is methodFromAbstractInterface with lambda. " +
+                                                      "Anonymous class");
 
         AbstractInterface ab = new AbstractInterface() {
             @Override
@@ -42,7 +55,7 @@ public class Outer {
         ab.methodFromAbstractInterface();
     }
 
-    class Inner {
+    class Inner{
         int innerInt = 60;
 
         void test() {
@@ -71,7 +84,7 @@ public class Outer {
         }
     }
 
-    static class Nested {
+    static class Nested extends Outer implements AbstractInterface{
         int nestedInt = 50;
 
         void test() {
@@ -89,6 +102,15 @@ public class Outer {
             LocalClass localInInner = new LocalClass();
             localInInner.test();
         }
+
+        @Override
+        public void methodFromAbstractInterface() {
+            System.out.println("methodFromAbstractInterface from static nested class");
+        }
+    }
+
+    static class Nested2 extends Nested{
+
     }
 }
 
